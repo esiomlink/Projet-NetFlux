@@ -1,5 +1,5 @@
 /******************************************************************************************************************************************************************/
-##Le but de ce projet consiste à crée une base de données MySQL et la connecter via un CRUD Node.js crée avec le Framework Express au Front-end de l'application en   crée en React et de pouvoir ajouter, supprimer, modifier les données et bien sûr de les afficher dans une application rappelant le célèbre Netflix.
+## Le but de ce projet consiste à crée une base de données MySQL et la connecter via un CRUD Node.js crée avec le Framework Express au Front-end de l'application en   crée en React et de pouvoir ajouter, supprimer, modifier les données et bien sûr de les afficher dans une application rappelant le célèbre Netflix.
 /******************************************************************************************************************************************************************/
 
 
