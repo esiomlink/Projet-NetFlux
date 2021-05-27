@@ -1,38 +1,125 @@
 .App {
   text-align: center;
+  width: 100%;
+
+  background-color: rgb(29, 28, 28);
+  color: azure;
+
+}
+.header{
+background-color: rgb(12, 12, 12);
+height: 6rem;
+}
+.header h1{
+  padding-top: 1rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.movis-list h1{
+padding: 5rem; ;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.formulaire{
+  margin-top: 5rem;
+display: grid;
+place-items: center;
+padding: 1rem;
+}
+.form-container{
+  width: 100%;
+  padding: 2rem;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (min-width: 900px) {
+  .form-container{
+  width: 30rem;
   }
-  to {
-    transform: rotate(360deg);
-  }
+  .alice-carousel__next-btn{
+  left: 20%;
 }
+.alice-carousel__prev-btn {
+  right: 20%;
+}
+ }
+ @media (min-width: 1024px) {
+  .form-container{
+  width: 40rem;
+  }
+ }
+ @media (min-width: 1200px) {
+  .form-container{
+  width: 60rem;
+  }
+ }
+ @media (min-width: 1600px) {
+  .form-container{
+  width: 80rem;
+  }
+ }
+.alice-carousel__prev-btn-item:hover,
+.alice-carousel__next-btn-item:hover {
+  background-color: rgb(23, 78, 180);
+  color: red;
+}
+.alice-carousel__dots {
+  display: none;
+}
+.alice-carousel__prev-btn-item,
+.alice-carousel__next-btn-item {
+  font-size: 4rem;
+  text-align: center;
+  width:4rem;
+  height: 6rem;
+  font-weight: bold;
+  transition: 0.6s ease;
+  color: rgb(0, 0, 0);
+  background-color: red;
+  border-radius: 5px;
+
+}
+.alice-carousel__prev-btn, .alice-carousel__next-btn {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 5rem!important;
+
+
+
+}
+.alice-carousel__prev-btn-wrapper,
+.alice-carousel__next-btn-wrapper{
+  display: none;
+  
+}
+.alice-carousel__next-btn{
+  position: relative;
+  display: block;
+  bottom: 12rem;
+  left: 15%;
+}
+.alice-carousel__prev-btn {
+  position: relative;
+  display: block;
+  bottom: 12rem;
+  right: 20%;
+}
+@media (min-width: 768px) {
+.alice-carousel__prev-btn-wrapper,
+.alice-carousel__next-btn-wrapper{
+  display: inline-block;
+
+  
+}
+}
+@media (min-width: 900px) {
+  .alice-carousel__next-btn{
+  left: 15%;
+}
+.alice-carousel__prev-btn {
+  right: 20%;
+}
+ }
+ @media (min-width: 1024px) {
+  .alice-carousel__next-btn{
+  left: 35%;
+}
+.alice-carousel__prev-btn {
+  right: 40%;
+}
+ }
