@@ -7,7 +7,7 @@
 
 
 
-==> Crée une database en local et appelez la movies 
+==> Crée une database en local et appelez la movies les champs de la table sont "title, director, year, color, duration, img"
 
 ==> renseigner le ".env" au niveau du "sample.env";
 
