@@ -20,3 +20,6 @@
 ==> Insérer des films via le formulaire pour profiter de l'application
 
 
+##==> Maj 29/05/2021: Ajout de la zone admin pour supprimer, modifier et ajouter des films 
+
+
