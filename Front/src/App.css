@@ -1,7 +1,9 @@
+a{
+  
+}
 .App {
   text-align: center;
   width: 100%;
-
   background-color: rgb(29, 28, 28);
   color: azure;
 
@@ -9,9 +11,20 @@
 .header{
 background-color: rgb(12, 12, 12);
 height: 6rem;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+padding-top: 1.2rem;
+
+
 }
 .header h1{
-  padding-top: 1rem;
+  padding-left: 2rem;
+  color: red;
+}
+.header .button {
+  padding-top: 0.3rem;
+  padding-right: 1rem;
 }
 
 .movis-list h1{
@@ -27,7 +40,17 @@ padding: 1rem;
   width: 100%;
   padding: 2rem;
   }
+  @media (min-width: 500px) {
+    .header h1{
+  padding-left: 4rem;
+
+}
+  .header .button {
+  padding-right: 8rem;
+}
+}
 @media (min-width: 900px) {
+
   .form-container{
   width: 30rem;
   }
@@ -91,7 +114,7 @@ padding: 1rem;
   position: relative;
   display: block;
   bottom: 12rem;
-  left: 15%;
+  left: 20%;
 }
 .alice-carousel__prev-btn {
   position: relative;
@@ -109,7 +132,7 @@ padding: 1rem;
 }
 @media (min-width: 900px) {
   .alice-carousel__next-btn{
-  left: 15%;
+  left: 20%;
 }
 .alice-carousel__prev-btn {
   right: 20%;
@@ -117,7 +140,7 @@ padding: 1rem;
  }
  @media (min-width: 1024px) {
   .alice-carousel__next-btn{
-  left: 35%;
+  left: 40%;
 }
 .alice-carousel__prev-btn {
   right: 40%;

@@ -7,20 +7,21 @@ import Card from 'react-bootstrap/Card';
 import '../App.css';
 
 const FormAddMovies = ({ movies, setmovies }) => {
+
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
- 
-    const onSubmit = (values, e) => {
-      postNewMovies(values).then((newMovies) =>
+
+  const onSubmit = (values) => {
+    postNewMovies(values).then((newMovies) =>
       setmovies([...movies, newMovies])
-      );
-      alert('Merci, le film a bien ete ajouter à la liste')
-      reset()
-    };
+    );
+    alert('Merci, le film a bien ete ajouter à la liste');
+    reset();
+  };
   return (
     <div className='formulaire'>
       <Card className='form-container'>
@@ -71,10 +72,7 @@ const FormAddMovies = ({ movies, setmovies }) => {
             />
             {errors.img && <p>{errors.img.message}</p>}
           </Form.Group>
-          <Button
-            variant='outline-primary'
-            type='submit'
-          >
+          <Button variant='outline-primary' type='submit'>
             Add new movie
           </Button>
         </Form>
