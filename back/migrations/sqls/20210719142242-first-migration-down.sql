@@ -1,1 +1,7 @@
-/* Replace with your SQL commands */
+SET FOREIGN_KEY_CHECKS=0;
+DROP TABLE IF EXISTS `role`;
+DROP TABLE IF EXISTS `category`;
+DROP TABLE IF EXISTS `movies_has_users`;
+DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `movies`;
+SET FOREIGN_KEY_CHECKS=1;

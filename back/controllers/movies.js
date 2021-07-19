@@ -3,7 +3,6 @@ const Movie = require('../model/movies');
 const getAllMovies = async (req, res) => {
   try {
     const movies = await Movie.getAll();
-    res.setHeader('Content-Range', `bytes */${movies.length}`);
     res.status(200).json(movies);
   } catch (error) {
     console.log(error);
