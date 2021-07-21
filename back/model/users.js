@@ -63,11 +63,12 @@ const findEmail = (email) => {
 };
 
 const update = (id, data) => {
-  return connection.query('UPDATE movies SET ? WHERE id=?', [data, id]);
+  console.log(data)
+  return connection.query('UPDATE users SET ? WHERE id=?', [data, id]);
 };
 
 const deleteOne = (id) => {
-  return connection.query('DELETE FROM movies WHERE id=?', [id]);
+  return connection.query('DELETE FROM users WHERE id=?', [id]);
 };
 
 module.exports = {

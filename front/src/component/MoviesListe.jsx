@@ -1,5 +1,6 @@
 import {  useContext } from 'react';
 import UserContext from '../contexts/UserContext';
+import { Link } from 'react-router-dom';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import '../App.css';
@@ -42,7 +43,10 @@ const MoviesListe = () => {
       >
         {movies &&
           movies.map((movie) => (
-            <img key='pic' alt='pic' width='200px' height='250px' src={movie.img} />
+            <Link to={`/movie/${movie.id}`} label='login'>
+              <img key='pic' alt='pic' width='200px' height='250px' src={movie.img} />
+
+            </Link>
           ))}
       </AliceCarousel>
     </div>

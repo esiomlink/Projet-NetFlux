@@ -19,7 +19,6 @@ const FormAddMovies = () => {
   } = useForm();
 
   const onSubmit = (values) => {
-    console.log(values)
     postNewMovies(values).then((newMovies) =>
       setmovies([...movies, newMovies])
     );
@@ -28,7 +27,15 @@ const FormAddMovies = () => {
   };
   return (
     <div className='formulaire'>
-      <Card className='form-container'>
+      <Card
+        className='form-container'
+        style={{
+          background: 'rgb(34, 34, 34)',
+          color: 'azure',
+          borderColor: 'azure',
+        }}
+        >
+        <h1>Add New Movie</h1>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Form.Group controlId='formBasicEmail'>
             <Form.Label>Title :</Form.Label>
@@ -69,13 +76,13 @@ const FormAddMovies = () => {
             />
             {errors.img && <p>{errors.img.message}</p>}
             <Form.Label>category :</Form.Label>
-            <Form.Control as='select'  {...register('category_id')}>
+            <Form.Control as='select' {...register('category_id')}>
               {category.map((cat) => (
                 <option value={cat.id}>{cat.name}</option>
               ))}
             </Form.Control>
           </Form.Group>
-          <Button variant='outline-primary' type='submit'className='mt-4'>
+          <Button variant='primary' type='submit' className='mt-4'>
             Add new movie
           </Button>
         </Form>

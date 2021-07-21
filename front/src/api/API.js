@@ -2,6 +2,9 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 axios.defaults.baseURL = 'http://localhost:8080';
 
+
+
+/* users part */
 const getUser = async () => {
   const id = Cookies.get('id');
   return await axios.get(`/api/users/${id}`).then((res) => res.data);
@@ -13,16 +16,35 @@ const login = async (values) => {
     Cookies.set('token', res.data.token);
   });
 };
-const getCategory = async (values) => {
-  return await axios.get('/api/categories').then((res) => res.data);
-};
 const addNewUser = async (values) => {
   return await axios.post('./api/users', values).then((res) => res.data);
 };
+const updateUser = async (values)=>{
+    const id = Cookies.get('id');
+  return await axios.put(`./api/users/${id}`, values).then((res)=>res.data)
+}
+
+/* movies part */
 const getAllMovies = async () => {
   return await axios.get('/api/movies').then((res) => res.data);
 };
+const getMovie = async(id)=>{
+
+  return await axios.get(`/api/movies/${id}`).then((res)=> res.data[0])
+}
 const postNewMovies = async (values) => {
   return await axios.post('/api/movies', values).then((res) => res.data);
 };
-export { getAllMovies, postNewMovies, getUser, login, addNewUser, getCategory };
+const getCategory = async (values) => {
+  return await axios.get('/api/categories').then((res) => res.data);
+};
+export {
+  getAllMovies,
+  postNewMovies,
+  getUser,
+  login,
+  addNewUser,
+  getCategory,
+  updateUser,
+  getMovie
+};

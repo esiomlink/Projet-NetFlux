@@ -29,13 +29,18 @@ const Login = () => {
 
   return (
     <div className='formulaire'>
-      <Card className='form-container'>
+      <Card
+        className='form-container'
+        style={{
+          background: 'rgb(34, 34, 34)',
+          color: 'azure',
+          borderColor: 'azure',
+        }}
+      >
+        <h1 v>Login</h1>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Form.Group controlId='formBasicEmail'>
             <Form.Label>Email address</Form.Label>
-            <Form.Text className='text-muted'>
-              We'll never share your email and password with anyone else.
-            </Form.Text>
             <Form.Control
               type='email'
               placeholder='Enter email'
@@ -55,6 +60,9 @@ const Login = () => {
               })}
             />
             {errors.user_password && <p>{errors.password.message}</p>}
+              <Form.Text className='text-muted '>
+                We'll never share your email and password with anyone else.
+              </Form.Text>
           </Form.Group>
           <Button variant='primary' className='mt-4' type='submit'>
             Submit

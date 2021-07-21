@@ -27,7 +27,15 @@ const SignUp = () => {
   };
   return (
     <div className='formulaire'>
-      <Card className='form-container'>
+      <Card
+        className='form-container'
+        style={{
+          background: 'rgb(34, 34, 34)',
+          color: 'azure',
+          borderColor: 'azure',
+        }}
+      >
+        <h1 className='mb-5'>Sign Up</h1>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Form.Group controlId='formBasicEmail'>
             <Form.Label>Psedo</Form.Label>
@@ -95,7 +103,7 @@ const SignUp = () => {
               {...register('role_id')}
             />
           </Form.Group>
-          <Button variant='primary' type='submit'>
+          <Button variant='primary' type='submit' className='mt-4'>
             Submit
           </Button>
         </Form>

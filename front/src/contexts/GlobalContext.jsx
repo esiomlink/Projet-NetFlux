@@ -9,7 +9,7 @@ const GlobalContext = ({ children }) => {
   const [isConnected, setIsConnected] = useState(false);
   const [movies, setmovies] = useState('');
   const [category, setCategory] = useState('');
-  console.log(category)
+
 
 function cleanAllCookies() {
   Cookies.remove('id');

@@ -49,7 +49,7 @@ const updateUser = async (req, res) => {
   try {
     const { id } = req.params;
     const { body } = req;
-    await User.udpate(id, body);
+    await User.update(id, body);
     res.sendStatus(204);
   } catch (error) {
     console.log(error);
