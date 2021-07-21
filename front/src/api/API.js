@@ -4,7 +4,7 @@ axios.defaults.baseURL = 'http://localhost:8080';
 
 
 
-/* users part */
+/* *****Users part***** */
 const getUser = async () => {
   const id = Cookies.get('id');
   return await axios.get(`/api/users/${id}`).then((res) => res.data);
@@ -24,7 +24,7 @@ const updateUser = async (values)=>{
   return await axios.put(`./api/users/${id}`, values).then((res)=>res.data)
 }
 
-/* movies part */
+/* *******Movies part****** */
 const getAllMovies = async () => {
   return await axios.get('/api/movies').then((res) => res.data);
 };
@@ -38,6 +38,16 @@ const postNewMovies = async (values) => {
 const getCategory = async (values) => {
   return await axios.get('/api/categories').then((res) => res.data);
 };
+
+
+/* *****Comments part***** */
+const getComment =  async (id)=>{
+  return await axios.get(`/api/comments/${id}`).then((res) => res.data);
+}
+const postComment = async ( values)=>{
+  console.log(values)
+  return await axios.post(`/api/comments`, values).then((res)=>res.data)
+}
 export {
   getAllMovies,
   postNewMovies,
@@ -46,5 +56,7 @@ export {
   addNewUser,
   getCategory,
   updateUser,
-  getMovie
+  getMovie,
+  getComment,
+  postComment,
 };
