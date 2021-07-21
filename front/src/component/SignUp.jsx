@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { postUser } from '../api/API';
+import { addNewUser } from '../api/API';
 
 const SignUp = () => {
   let history = useHistory();
@@ -19,8 +19,8 @@ const SignUp = () => {
 
 
   const onSubmit = (values) => {
-    postUser(values).then((newUser) => {
-    setusers([...users, newUser]);
+    addNewUser(values).then((newUser) => {
+      setusers([...users, newUser]);
     });
     alert('merci pour votre inscription');
     history.push('/');

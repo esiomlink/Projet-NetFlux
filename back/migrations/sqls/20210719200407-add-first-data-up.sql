@@ -11,6 +11,6 @@ INSERT INTO `category` (`id`, `name`) VALUES ('7', 'animé');
 INSERT INTO `category` (`id`, `name`) VALUES ('8', 'serie netflix');
 INSERT INTO `category` (`id`, `name`) VALUES ('9', 'filme netflix');
 
-INSERT INTO `users` (`id`, `psedo`, `password`, `firstname`, `lastname`, `email`, `role_role`) VALUES ('1', 'admin', '$argon2id$v=19$m=65536,t=5,p=1$jal/YOoWNGuCKvDcfMVB0g$t13cBPilyB7N067KlUh9unKwIwsC7Pzpb6DPIk9o3fk', 'admin', 'admin', 'admin@netflux.com', '1');
-INSERT INTO `users` (`id`, `psedo`, `password`, `firstname`, `lastname`, `email`, `role_role`) VALUES ('1', 'user', '$argon2id$v=19$m=65536,t=5,p=1$7GCQsSMXhh7rz1HmAB2AXg$qcegLPhh8GzD7QfbqrjBJV9o7wPc53PRCTSvRiqPOHU', 'user', 'user', 'user@netflux.com', '1');
+INSERT INTO `users` (`id`, `psedo`, `hashedPassword`, `firstname`, `lastname`, `email`, `role_id`) VALUES ('1', 'admin', '$argon2id$v=19$m=65536,t=5,p=1$jal/YOoWNGuCKvDcfMVB0g$t13cBPilyB7N067KlUh9unKwIwsC7Pzpb6DPIk9o3fk', 'admin', 'admin', 'admin@netflux.com', '1');
+INSERT INTO `users` (`id`, `psedo`, `hashedPassword`, `firstname`, `lastname`, `email`, `role_id`) VALUES ('2', 'user', '$argon2id$v=19$m=65536,t=5,p=1$7GCQsSMXhh7rz1HmAB2AXg$qcegLPhh8GzD7QfbqrjBJV9o7wPc53PRCTSvRiqPOHU', 'user', 'user', 'user@netflux.com', '1');
 

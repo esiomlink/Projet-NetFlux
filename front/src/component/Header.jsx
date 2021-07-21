@@ -3,29 +3,33 @@ import { Link, useHistory } from 'react-router-dom';
 import UserContext from '../contexts/UserContext';
 import '../App.css';
 import Button from 'react-bootstrap/Button';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+
+import logo from '../img/logo.png';
 
 const Header = () => {
-  const { userName, setuserName, isConnected, setIsConnected } =
+  const { isConnected, setIsConnected, cleanAllCookies } =
     useContext(UserContext);
   let history = useHistory();
 
   const handleClick = () => {
     setIsConnected(false);
-    setuserName('login');
+    cleanAllCookies();
     history.push('/');
   };
 
   return (
     <div className='header'>
       <Link style={{ textDecoration: 'none' }} to='/' label='home'>
-        <h1>NetFlux</h1>
+        <img src={logo} alt='logo' />
       </Link>
       <div className='button'>
         {!isConnected && (
           <div>
             <Link to='/login' label='login'>
               <Button className='btn' variant='primary'>
-                {userName}
+                login
               </Button>
             </Link>
             <Link to='/signup' label='signup'>
@@ -36,19 +40,32 @@ const Header = () => {
           </div>
         )}
         {isConnected && (
-          <div>
-            <Link to='/myaccount' label='myaccount'>
-              <Button className='btn' variant='primary'>
-                My account
-              </Button>
-            </Link>
-            <Button
-              className='btn'
-              variant='danger'
-              onClick={() => handleClick()}
-            >
-              Disconnect
-            </Button>
+          <div className='drop-menu'>
+            <DropdownButton id='dropdown-basic-button' title={`👾`}>
+              <Dropdown.Item href='/myaccount'>
+                <Link to='/myaccount' label='myaccount'>
+                  <Button className='btn w-100' variant='light'>
+                    My account
+                  </Button>
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link to='/addmovie' label='addmovies'>
+                  <Button className='btn w-100' variant='light'>
+                    Add movie
+                  </Button>
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Button
+                  className='btn w-100'
+                  variant='light'
+                  onClick={() => handleClick()}
+                >
+                  Disconnect
+                </Button>
+              </Dropdown.Item>
+            </DropdownButton>
           </div>
         )}
       </div>

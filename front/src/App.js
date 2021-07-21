@@ -4,6 +4,7 @@ import Header from './component/Header';
 import Login from './component/Login';
 import MyAccunt from './component/MyAccunt';
 import SignUp from './component/SignUp';
+import FormAddMovies from './component/FormAddMovies';
 import GlobalContext from './contexts/GlobalContext';
 import Home from './page/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,6 +19,7 @@ function App() {
           <Route path='/login' exact component={Login} />
           <Route path='/signup' exact component={SignUp} />
           <Route path='/myaccount' exact component={MyAccunt} />
+          <Route path='/addmovie' exact component={FormAddMovies}/>
         </Router>
       </div>
     </GlobalContext>

@@ -33,7 +33,7 @@ const getAll = () => {
 };
 
 const getOne = (id) => {
-  return connection.query('SELECT * FROM movies WHERE id=?', [id]);
+  return connection.query('SELECT * FROM users WHERE id=?', [id]);
 };
 
 const createOne = ({
@@ -44,7 +44,6 @@ const createOne = ({
   psedo,
   role_id,
 }) => {
-  console.log(password)
   return hashPassword(password).then((hashedPassword) =>
     connection.query(
       'INSERT INTO users ( email, lastname, firstname, hashedPassword, psedo, role_id) VALUES (?, ?, ?, ?, ?, ?)',
@@ -60,7 +59,7 @@ const findEmail = (email) => {
        WHERE email = ?`,
       [email]
     )
-    .then(([results]) => results);
+    .then(([results]) =>results);
 };
 
 const update = (id, data) => {

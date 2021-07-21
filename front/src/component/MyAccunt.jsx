@@ -1,16 +1,13 @@
-import { useContext, useState } from 'react';
-import {getUser} from '../api/API'
+import { useContext } from 'react';
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import UserContext from '../contexts/UserContext';
 import '../App.css';
 
 const MyAccunt = () => {
-  const { userName } =
-  useContext(UserContext);
-  console.log(userName)
-  const [mmmmm, setmmmmm] = useState('');
-  console.log(mmmmm)
+  const { userInfos } = useContext(UserContext);
+
 
   return (
     <div className='formulaire'>
@@ -32,20 +29,13 @@ const MyAccunt = () => {
             borderColor: 'azure',
           }}
         >
-          <Card.Title>Psedo: {userName[0]}</Card.Title>
-          <Card.Title>Password: {userName[1]}</Card.Title>
-          <Card.Title>First name: {userName[2]}</Card.Title>
-          <Card.Title>Last name: {userName[3]}</Card.Title>
-          <Card.Title>Email: {userName[4]}</Card.Title>
+          <Card.Title>Psedo: {userInfos.psedo}</Card.Title>
+          <Card.Title>First name: {userInfos.firstname}</Card.Title>
+          <Card.Title>Last name: {userInfos.lastname}</Card.Title>
+          <Card.Title>Email: {userInfos.email}</Card.Title>
 
-          <Card.Text>
-            With supporting text below as a natural lead-in to additional
-            content.
-          </Card.Text>
-          <Button variant='primary'>Go somewhere</Button>
-          <button type='button' onClick={setmmmmm(getUser())}>
-            get button{' '}
-          </button>
+
+          <Button variant='primary' className='mt-5'>Go somewhere</Button>
         </Card.Body>
       </Card>
     </div>

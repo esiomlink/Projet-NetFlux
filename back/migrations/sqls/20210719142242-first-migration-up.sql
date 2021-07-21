@@ -65,7 +65,7 @@ CREATE TABLE  `movies_has_users` (
   CONSTRAINT `fk_movies_has_users_users1`
     FOREIGN KEY (`users_id`)
     REFERENCES `users` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;

@@ -8,7 +8,6 @@ import '../App.css';
 const MoviesListe = () => {
  const { movies } = useContext(UserContext);
  console.log(movies)
-
  const responsive = {
     0: { items: 1 },
     900: {items: 4 },

@@ -1,22 +1,38 @@
 import { useState, useEffect } from 'react';
 import UserContext from '../contexts/UserContext';
-import { getUser } from '../api/API';
-import { getAllMovies } from '../api/API';
+import { getAllMovies, getUser, getCategory } from '../api/API';
+import Cookies from 'js-cookie';
 
 const GlobalContext = ({ children }) => {
   const [users, setusers] = useState('');
-  const [userName, setuserName] = useState('Sign in');
-  console.log(userName);
+  const [userInfos, setUserInfos] = useState('');
   const [isConnected, setIsConnected] = useState(false);
   const [movies, setmovies] = useState('');
-  const [userValue, setuserValue] = useState('');
+  const [category, setCategory] = useState('');
+  console.log(category)
+
+function cleanAllCookies() {
+  Cookies.remove('id');
+  Cookies.remove('role');
+  Cookies.remove('token');
+}
+function checkIfUserIsConnected() {
+  if (Cookies.get('id')) {
+    setIsConnected(true);
+    getUser().then((infos) => setUserInfos(infos));
+  }
+}
+
+useEffect(() => {
+  getCategory().then((res) => setCategory(res));
+}, [isConnected]);
+
 
   useEffect(() => {
-    getUser().then((res) => setusers(res));
-  }, []);
-  useEffect(() => {
     getAllMovies().then((res) => setmovies(res[0]));
+    checkIfUserIsConnected();
   }, []);
+
   return (
     <UserContext.Provider
       value={{
@@ -24,12 +40,13 @@ const GlobalContext = ({ children }) => {
         setusers,
         isConnected,
         setIsConnected,
-        userName,
-        setuserName,
         movies,
         setmovies,
-        userValue,
-        setuserValue,
+        userInfos,
+        setUserInfos,
+        checkIfUserIsConnected,
+        cleanAllCookies,
+        category,
       }}
     >
       {children}

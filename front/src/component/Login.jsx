@@ -1,6 +1,6 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import { getUser } from '../api/API';
+import { login } from '../api/API';
 import UserContext from '../contexts/UserContext';
 import '../App.css';
 import { useForm } from 'react-hook-form';
@@ -9,8 +9,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 const Login = () => {
-  const { users, isConnected, setIsConnected, setuserName } =
-  useContext(UserContext);
+  const { checkIfUserIsConnected } = useContext(UserContext);
   let history = useHistory();
 
   const {
@@ -18,62 +17,46 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  
-  function handleClick() {
-    history.push('/');
-  }
 
   const onSubmit = (values) => {
-    users.forEach((user,index) => {
-      if (
-        user.email === values.email &&
-        user.password === values.password
-      ) {
-        setIsConnected(true);
-        setuserName(
-          [user.psedo,
-          user.password,
-          user.firstname,
-          user.lastname,
-          user.email]
-        );
-      }
-    });
+    login(values)
+      .then(() => history.push('/'))
+      .catch(() => alert('login error'));
+    setTimeout(() => {
+      checkIfUserIsConnected();
+    }, 500);
   };
-  
 
-  
   return (
     <div className='formulaire'>
       <Card className='form-container'>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Form.Group controlId='formBasicEmail'>
             <Form.Label>Email address</Form.Label>
+            <Form.Text className='text-muted'>
+              We'll never share your email and password with anyone else.
+            </Form.Text>
             <Form.Control
               type='email'
               placeholder='Enter email'
-              {...register('user_email')}
+              {...register('email', {
+                required: 'You have to fill the name field',
+              })}
             />
-            {errors.user_email && <p>{errors.user_email.message}</p>}
-            <Form.Text className='text-muted'>
-              We'll never share your email with anyone else.
-            </Form.Text>
+            {errors.user_email && <p>{errors.email.message}</p>}
           </Form.Group>
           <Form.Group controlId='formBasicPassword'>
             <Form.Label>Password</Form.Label>
             <Form.Control
               type='password'
               placeholder='Password'
-              {...register('user_password')}
+              {...register('password', {
+                required: 'You have to fill the name field',
+              })}
             />
-            {errors.user_password && <p>{errors.user_password.message}</p>}
+            {errors.user_password && <p>{errors.password.message}</p>}
           </Form.Group>
-           <button type='button'></button>
-          <Button
-            variant='primary'
-            type='submit'
-            onClick={isConnected?handleClick():undefined}
-          >
+          <Button variant='primary' className='mt-4' type='submit'>
             Submit
           </Button>
         </Form>

@@ -10,6 +10,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^5.0.2",
     "cors": "^2.8.5",
+    "js-cookie": "^2.2.1",
     "react": "^17.0.2",
     "react-alice-carousel": "^2.5.1",
     "react-bootstrap": "^1.6.1",

@@ -1,8 +1,9 @@
-const Category = require('../model/categorys');
+const Category = require('../model/category');
 
 const getAllCategorys = async (req, res) => {
   try {
     const categorys = await Category.getAll();
+    console.log(categorys)
     res.status(200).json(categorys[0]);
   } catch (error) {
     console.log(error);

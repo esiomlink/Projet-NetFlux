@@ -1,4 +1,4 @@
-/* import { useContext } from 'react';
+import { useContext } from 'react';
 import UserContext from '../contexts/UserContext';
 import { postNewMovies } from '../api/API';
 import { useForm } from 'react-hook-form';
@@ -9,8 +9,8 @@ import Card from 'react-bootstrap/Card';
 import '../App.css';
 
 const FormAddMovies = () => {
-  const { movies, setmovies } =
-    useContext(UserContext);
+  const { movies, setmovies, category } = useContext(UserContext);
+  console.log(category);
   const {
     register,
     handleSubmit,
@@ -19,8 +19,8 @@ const FormAddMovies = () => {
   } = useForm();
 
   const onSubmit = (values) => {
-    postNewMovies(values).then((²                     1
-      12145&&) =>
+    console.log(values)
+    postNewMovies(values).then((newMovies) =>
       setmovies([...movies, newMovies])
     );
     alert('Merci, le film a bien ete ajouter à la liste');
@@ -54,13 +54,6 @@ const FormAddMovies = () => {
               {...register('year')}
             />
             {errors.year && <p>{errors.year.message}</p>}
-            <Form.Label>Color :</Form.Label>
-            <Form.Control
-              type='number'
-              placeholder='Enter 0 if black movie and 1 if color movie'
-              {...register('color')}
-            />
-            {errors.color && <p>{errors.color.message}</p>}
             <Form.Label>Duration :</Form.Label>
             <Form.Control
               type='number'
@@ -75,8 +68,14 @@ const FormAddMovies = () => {
               {...register('img')}
             />
             {errors.img && <p>{errors.img.message}</p>}
+            <Form.Label>category :</Form.Label>
+            <Form.Control as='select'  {...register('category_id')}>
+              {category.map((cat) => (
+                <option value={cat.id}>{cat.name}</option>
+              ))}
+            </Form.Control>
           </Form.Group>
-          <Button variant='outline-primary' type='submit'>
+          <Button variant='outline-primary' type='submit'className='mt-4'>
             Add new movie
           </Button>
         </Form>
@@ -86,4 +85,3 @@ const FormAddMovies = () => {
 };
 
 export default FormAddMovies;
- */
