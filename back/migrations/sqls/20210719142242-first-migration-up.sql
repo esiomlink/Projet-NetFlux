@@ -4,20 +4,7 @@ CREATE TABLE  `category` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-CREATE TABLE  `comment` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `text` VARCHAR(1500) NOT NULL,
-  `movies_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `movies_id`),
-  INDEX `fk_comment_movies1_idx` (`movies_id` ASC) VISIBLE,
-  CONSTRAINT `fk_comment_movies1`
-    FOREIGN KEY (`movies_id`)
-    REFERENCES `movies`.`movies` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-AUTO_INCREMENT = 1
-DEFAULT CHARACTER SET = utf8mb4
+
 
 CREATE TABLE  `role` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -64,6 +51,22 @@ ENGINE = InnoDB
 AUTO_INCREMENT = 1
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE  `comment` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `text` VARCHAR(1500) NOT NULL,
+  `movies_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `movies_id`),
+  INDEX `fk_comment_movies1_idx` (`movies_id` ASC) VISIBLE,
+  CONSTRAINT `fk_comment_movies1`
+    FOREIGN KEY (`movies_id`)
+    REFERENCES `movies`.`movies` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 1
+DEFAULT CHARACTER SET = utf8mb4;
 
 CREATE TABLE  `movies_has_users` (
   `movies_id` INT NOT NULL,
