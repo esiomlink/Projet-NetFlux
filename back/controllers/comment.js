@@ -1,7 +1,6 @@
 const Comment = require('../model/comment');
 
 const getAllComments = async (req, res) => {
-  console.log('Comment:', Comment)
   try {
     const comments = await Comment.getAll();
     console.log(comments);
@@ -15,7 +14,8 @@ const getAllComments = async (req, res) => {
 const getComment = async (req, res) => {
   try {
     const { id } = req.params;
-    const [comment] = await Comment.getOne(id);
+    const comment = await Comment.getOne(id);
+    console.log(comment)
     res.status(200).json(comment[0]);
   } catch (error) {
     console.log(error);

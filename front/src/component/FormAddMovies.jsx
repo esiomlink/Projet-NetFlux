@@ -25,6 +25,7 @@ const FormAddMovies = () => {
     alert('Merci, le film a bien ete ajouter à la liste');
     reset();
   };
+
   return (
     <div className='formulaire'>
       <Card
@@ -34,7 +35,7 @@ const FormAddMovies = () => {
           color: 'azure',
           borderColor: 'azure',
         }}
-        >
+      >
         <h1>Add New Movie</h1>
         <Form onSubmit={handleSubmit(onSubmit)}>
           <Form.Group controlId='formBasicEmail'>

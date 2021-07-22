@@ -6,26 +6,24 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import '../App.css';
 
 
-const MoviesListe = () => {
- const { movies } = useContext(UserContext);
- console.log(movies)
- const responsive = {
+const MoviesListe = ({ filtredMovie, categoryName }) => {
+  const responsive = {
     0: { items: 1 },
-    900: {items: 4 },
+    900: { items: 4 },
     1024: { items: 5 },
-    1200: {items: 6 },
-    1600: {items: 8},
-    1800: {items: 9},
-    2000: {items: 10},
-    2200: {items: 11},
-    2400: {items: 12},
-    2600: {items: 13},
-    2750: {items: 14},
-    2900: {items: 15}
-  }
+    1200: { items: 6 },
+    1600: { items: 8 },
+    1800: { items: 9 },
+    2000: { items: 10 },
+    2200: { items: 11 },
+    2400: { items: 12 },
+    2600: { items: 13 },
+    2750: { items: 14 },
+    2900: { items: 15 },
+  };
   return (
     <div className='movis-list'>
-      <h1>movies</h1>
+      <h1>{categoryName}</h1>
       <AliceCarousel
         duration={50}
         infinite={true}
@@ -41,11 +39,16 @@ const MoviesListe = () => {
         mouseDragEnabled
         autoPlayInterval={3000}
       >
-        {movies &&
-          movies.map((movie) => (
+        {filtredMovie &&
+          filtredMovie.map((movie) => (
             <Link to={`/movie/${movie.id}`} label='login'>
-              <img key='pic' alt='pic' width='200px' height='250px' src={movie.img} />
-
+              <img
+                key='pic'
+                alt='pic'
+                width='200px'
+                height='250px'
+                src={movie.img}
+              />
             </Link>
           ))}
       </AliceCarousel>

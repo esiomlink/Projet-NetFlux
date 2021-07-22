@@ -33,6 +33,7 @@ const deleteUser = async (req, res) => {
 };
 
 const createUser = async (req, res) => {
+  console.log(req)
   try {
     const { email } = req.body;
     await User.findEmail(email);

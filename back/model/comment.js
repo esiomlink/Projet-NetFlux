@@ -5,7 +5,7 @@ const getAll = () => {
 };
 
 const getOne = (id) => {
-  return connection.query('SELECT * FROM comment WHERE id=?', [id]);
+  return connection.query('SELECT * FROM comment WHERE movies_id=?', [id]);
 };
 
 const create = (data) => {

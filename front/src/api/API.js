@@ -44,10 +44,27 @@ const getCategory = async (values) => {
 const getComment =  async (id)=>{
   return await axios.get(`/api/comments/${id}`).then((res) => res.data);
 }
+
 const postComment = async ( values)=>{
-  console.log(values)
   return await axios.post(`/api/comments`, values).then((res)=>res.data)
 }
+
+/* *****Favorits part***** */
+async function getAllUserFavorites() {
+  const id = Cookies.get('id');
+  const data = [];
+  await axios.get(`/api/favorites/${id}`).then((res) => data.push(res.data));
+  return data[0];
+}
+
+async function postFavorite(value) {
+  await axios.post('/api/favorites', value).then((res) => res.data);
+}
+
+async function deleteFavorite(id) {
+  await axios.delete(`/api/favorites/${id}`).then((res) => res.data);
+}
+
 export {
   getAllMovies,
   postNewMovies,
@@ -59,4 +76,7 @@ export {
   getMovie,
   getComment,
   postComment,
+  getAllUserFavorites,
+  postFavorite,
+  deleteFavorite,
 };
