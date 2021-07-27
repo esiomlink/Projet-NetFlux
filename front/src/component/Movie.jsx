@@ -9,6 +9,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
+import  {Container} from 'react-bootstrap'
 import '../App.css';
 import {
   getMovie,
@@ -80,7 +81,7 @@ const Movie = () => {
 
   return (
     <div className='movies-card'>
-      <Card
+      <Container
         className='form-container'
         style={{
           background: 'rgb(34, 34, 34)',
@@ -91,7 +92,7 @@ const Movie = () => {
         }}
       >
         <div className='movies-card'>
-          <img src={movie.img} style={{ width: '40rem' }} alt='movie' />
+          <img src={movie.img} alt='movie' />
           <div className='description'>
             <Card.Header>
               <h1>{movie.title}</h1>
@@ -181,7 +182,7 @@ const Movie = () => {
             </Card.Body>
           </div>
         </div>
-      </Card>
+      </Container>
     </div>
   );
 };

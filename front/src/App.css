@@ -16,10 +16,11 @@ justify-content: space-between;
 }
 .header img{
   padding-left: 2rem;
+  width: 10rem;
 }
 .header .button {
 
-  padding-right: 1rem;
+  padding-right: 4rem;
 }
 .header .button .btn{
   margin-right: 0.5rem;
@@ -126,14 +127,32 @@ height: 90vh;
   bottom: 12rem;
   right: 20%;
 }
+
+/* .image-carousel{
+width:400px;
+} */
+@media (min-width: 568px) {
+.image-carousel{
+width:400px;
+}
+}
+/* 768 */
 @media (min-width: 768px) {
 .alice-carousel__prev-btn-wrapper,
 .alice-carousel__next-btn-wrapper{
-  display: inline-block;
-
-  
+  display: inline-block;  
+}
+.header img{
+  padding-left: 2rem;
+  width: 11rem;
 }
 }
+@media (min-width: 714px) {
+  .image-carousel{
+width:500px;
+}
+}
+/* 900 */
 @media (min-width: 900px) {
   .alice-carousel__next-btn{
   left: 20%;
@@ -141,13 +160,29 @@ height: 90vh;
 .alice-carousel__prev-btn {
   right: 20%;
 }
+.header img{
+  padding-left: 2rem;
+  width: 12rem;
+}
+.image-carousel{
+width:220px;
+}
  }
+ /* 1200 */
  @media (min-width: 1024px) {
   .alice-carousel__next-btn{
   left: 40%;
+  
 }
 .alice-carousel__prev-btn {
   right: 40%;
+}
+.header img{
+  padding-left: 2rem;
+  width: 14rem;
+}
+.image-carousel{
+width:200px;
 }
  }
 
@@ -156,7 +191,12 @@ height: 90vh;
   display: flex;
   flex-direction: row;
  }
-
+ .movies-card img{
+   flex: 0 0 75%;
+ }
  .movies-card .description{
    margin:  0 auto ;
+   flex: 0 0 25%;
  }
+
+ 

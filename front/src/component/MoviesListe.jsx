@@ -43,10 +43,9 @@ const MoviesListe = ({ filtredMovie, categoryName }) => {
           filtredMovie.map((movie) => (
             <Link to={`/movie/${movie.id}`} label='login'>
               <img
+                className='image-carousel'
                 key='pic'
                 alt='pic'
-                width='200px'
-                height='250px'
                 src={movie.img}
               />
             </Link>

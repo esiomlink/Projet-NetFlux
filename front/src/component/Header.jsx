@@ -7,7 +7,6 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
 import logo from '../img/logo.png';
-
 const Header = () => {
   const { isConnected, setIsConnected, cleanAllCookies } =
     useContext(UserContext);
@@ -19,10 +18,12 @@ const Header = () => {
     history.push('/');
   };
 
+
+
   return (
     <div className='header'>
       <Link style={{ textDecoration: 'none' }} to='/' label='home'>
-        <img src={logo} alt='logo' />
+        <img className='img-header' src={logo} alt='logo'  />
       </Link>
       <div className='button'>
         {!isConnected && (
